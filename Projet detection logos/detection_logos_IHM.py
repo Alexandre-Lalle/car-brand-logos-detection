@@ -1,11 +1,10 @@
 """
 pip install imutils
-pip install nbimporter
 pip install mysql.connector
 
 create database car_brand_logos;
 
-detection_logos.py line 46 (changer info de database)
+update database info in reconnaitre_logo() function
 
 """
 
@@ -18,8 +17,7 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 import joblib
 from skimage.feature import hog
-from main import *
-
+from detection_logo import main_detection
 
 svm_is_logo = joblib.load("./models/model_is_Logo.joblib")
 svm_logo = joblib.load("./models/model_reconnaitre_logo.joblib")    
@@ -243,4 +241,6 @@ right_frame2.logo = ImageTk.PhotoImage(logo_img2)
 right_frame2.logo_label = Label(right_frame2, image=right_frame2.logo)
 right_frame2.logo_label.grid(row=0, column=0, rowspan=4, padx=30, pady=10)
 
-root.mainloop()
+if __name__ == '__main__':
+
+    root.mainloop()
